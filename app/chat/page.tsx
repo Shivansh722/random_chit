@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { db } from "@/firebaseConfig"; // Import the Firestore config
 import { collection, addDoc, getDocs, updateDoc, doc } from "firebase/firestore"; // Firestore functions
+import Image from 'next/image'; // Importing Image from next/image
 
 interface Message {
   id?: string;
@@ -56,7 +57,7 @@ export default function ChatPage() {
     setMessage("");
   };
 
-  const handleSend = (e: any) => {
+  const handleSend = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
   };
 
